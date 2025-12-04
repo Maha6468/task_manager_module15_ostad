@@ -13,7 +13,6 @@ class TaskManagerApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
           colorSchemeSeed: Colors.green,
           textTheme: TextTheme(
               titleLarge: TextStyle(
@@ -27,7 +26,7 @@ class TaskManagerApp extends StatelessWidget {
 
             hintStyle: TextStyle(color: Colors.grey),
             border: OutlineInputBorder(
-                borderSide: BorderSide.none
+                borderSide: BorderSide.none,
             ),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none

@@ -1,7 +1,6 @@
 // import 'dart:convert';
 //
 // import 'package:http/http.dart';
-// import 'package:logger/logger.dart';
 //
 // class ApiCaller {
 //   static final Logger _logger = Logger();
@@ -85,6 +84,7 @@
 //     );
 //   }
 // }
+//
 //
 // // API response
 // //     -> body
