@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/update_profile_screen.dart';
+import '../screens/update_profile.dart';
 class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TMAppBar({
     super.key,
@@ -12,7 +12,7 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.green,
       title: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>UpdateProfileScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>UpdateProfile()));
         },
         child: Row(
           children: [

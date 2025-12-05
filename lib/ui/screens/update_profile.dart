@@ -4,14 +4,14 @@ import '../widgets/photo_picker.dart';
 import '../widgets/screen_background.dart';
 import '../widgets/tm_app_bar.dart';
 
-class UpdateProfileScreen extends StatefulWidget {
-  const UpdateProfileScreen({super.key});
+class UpdateProfile extends StatefulWidget {
+  const UpdateProfile({super.key});
 
   @override
-  State<UpdateProfileScreen> createState() => _UpdateProfileScreenState();
+  State<UpdateProfile> createState() => _UpdateProfileState();
 }
 
-class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
+class _UpdateProfileState extends State<UpdateProfile> {
   final ImagePicker _imagePicker = ImagePicker();
 
   XFile? _selectedImage;
