@@ -23,15 +23,16 @@ class _Get_Started_WithState extends State<Get_Started_With> {
     void _onTabForgetPassword(){
       Navigator.push(context, MaterialPageRoute(builder:(context)=>Your_Email_Address()));
     }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: ScreenBackground(
           child: Padding(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 150,),
+                const SizedBox(height: 140,),
                 //Spacer(),
                 Text('Get Started With',
                   style: Theme.of(context).textTheme.titleLarge,      //p
