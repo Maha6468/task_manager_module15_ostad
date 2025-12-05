@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 class photo_picker extends StatelessWidget {
-  const photo_picker({
-    super.key, required this.onTap, this.selectedPhoto,
-  });
+  const photo_picker({super.key, required this.onTap, this.selectedPhoto,});
 
   final VoidCallback onTap;
   final XFile ? selectedPhoto;
