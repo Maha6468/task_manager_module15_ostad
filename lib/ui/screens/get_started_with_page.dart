@@ -1,27 +1,27 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager_module15_ostad/ui/screens/sign_up_screen.dart';
+import 'package:task_manager_module15_ostad/ui/screens/join_with_us.dart';
 import '../widgets/screen_background.dart';
-import 'forget_password_email_verify.dart';
+import 'your_email_address.dart';
 import 'main_nav_bar_holder_screen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class Get_Started_With extends StatefulWidget {
+  const Get_Started_With({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Get_Started_With> createState() => _Get_Started_WithState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _Get_Started_WithState extends State<Get_Started_With> {
   @override
   Widget build(BuildContext context) {
 
     void _onTabSignUp(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Join_With_Us()));
     }
 
     void _onTabForgetPassword(){
-      Navigator.push(context, MaterialPageRoute(builder:(context)=>ForgetPasswordEmailVerify()));
+      Navigator.push(context, MaterialPageRoute(builder:(context)=>Your_Email_Address()));
     }
     return Scaffold(
       body: ScreenBackground(

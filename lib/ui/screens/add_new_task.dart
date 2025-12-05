@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../widgets/screen_background.dart';
 import '../widgets/tm_app_bar.dart';
 
-class AddNewTaskScreen extends StatefulWidget {
-  const AddNewTaskScreen({super.key});
+class AddNewTask extends StatefulWidget {
+  const AddNewTask({super.key});
 
   @override
-  State<AddNewTaskScreen> createState() => _AddNewTaskScreenState();
+  State<AddNewTask> createState() => _AddNewTaskState();
 }
 
-class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
+class _AddNewTaskState extends State<AddNewTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
