@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/screen_background.dart';
-import 'forget_password_verify_otp_screen.dart';
+import 'pin_verification.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class Set_Password extends StatelessWidget {
+  const Set_Password({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class ResetPasswordScreen extends StatelessWidget {
               ),
               FilledButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetPasswordVerifyOtpScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
                   },
                   child: Icon(Icons.arrow_circle_right_outlined)),
               const SizedBox(

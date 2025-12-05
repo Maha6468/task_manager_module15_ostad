@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../utils/asset_paths.dart';
 import '../widgets/screen_background.dart';
-import 'login_page.dart';
+import 'get_started_with_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveToNextScreen() async {
     await Future.delayed(Duration(seconds: 15));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Get_Started_With()));
   }
 
   @override
