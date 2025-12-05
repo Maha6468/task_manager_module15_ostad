@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/screen_background.dart';
-import 'forget_password_verify_otp_screen.dart';
+import 'pin_verification.dart';
 
-class ForgetPasswordEmailVerify extends StatelessWidget {
-  const ForgetPasswordEmailVerify({super.key});
+class Your_Email_Address extends StatelessWidget {
+  const Your_Email_Address({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class ForgetPasswordEmailVerify extends StatelessWidget {
               ),
               FilledButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetPasswordVerifyOtpScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
                   },
                   child: Icon(Icons.arrow_circle_right_outlined)),
               const SizedBox(
