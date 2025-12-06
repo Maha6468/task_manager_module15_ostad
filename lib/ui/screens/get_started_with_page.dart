@@ -32,13 +32,14 @@ class _Get_Started_WithState extends State<Get_Started_With> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 140,),
+                //Expanded(child: SizedBox()),
                 //Spacer(),
+                const SizedBox(height: 140,),
                 Text('Get Started With',
-                  style: Theme.of(context).textTheme.titleLarge,      //p
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 25,),
-        
+                const SizedBox(height: 20,),
+
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: 'Email',
@@ -52,25 +53,27 @@ class _Get_Started_WithState extends State<Get_Started_With> {
                 ),
                 const SizedBox(height: 20,),
                 FilledButton(
-        
                     onPressed: () {
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MainNavBarHolderScreen()));
                     },
                     child: Icon(Icons.arrow_circle_right_outlined)),
                 const SizedBox(height: 35,),
-        
+
                 Center(
                   child: Column(
                     children: [
-                      TextButton(onPressed: _onTabForgetPassword, child: Text('Forget password')),
+                      TextButton(
+                          onPressed: _onTabForgetPassword,
+                          child: Text('Forget password')
+                      ),
                       RichText(
                         text: TextSpan(
                             text: "Don't have an account? ",
                             children: [
                               TextSpan(
                                   text: 'Sign Up', style: TextStyle(color: Colors.green),
-        
-                                  recognizer: TapGestureRecognizer()..onTap =_onTabSignUp
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap =_onTabSignUp
                               ),
                             ],
                             style: TextStyle(
@@ -81,6 +84,7 @@ class _Get_Started_WithState extends State<Get_Started_With> {
                     ],
                   ),
                 ),
+                //Expanded(child: SizedBox()),
                 //Spacer()
               ],
             ),

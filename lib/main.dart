@@ -17,14 +17,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorSchemeSeed: Colors.green,
+          colorSchemeSeed: Colors.amber,
           textTheme: TextTheme(
               titleLarge: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w600
               )
           ),
+
+
           inputDecorationTheme: InputDecorationTheme(
+
             fillColor: Colors.white,
             filled: true,
             hintStyle: TextStyle(color: Colors.grey),
@@ -34,18 +37,18 @@ class MyApp extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none
             ),
-
           ),
 
+
           filledButtonTheme: FilledButtonThemeData(
-              style: FilledButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  fixedSize: Size.fromWidth(double.maxFinite),
-                  padding: EdgeInsets.symmetric(vertical: 12),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                  )
-              )
+               style: FilledButton.styleFrom(
+                   backgroundColor: Colors.green,
+                   fixedSize: Size.fromWidth(double.maxFinite),
+                   padding: EdgeInsets.symmetric(vertical: 12),
+                   shape: RoundedRectangleBorder(
+                       borderRadius: BorderRadius.circular(10)
+                   )
+               )
           )
       ),
       initialRoute: '/SplashScreen',

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../utils/asset_paths.dart';
 import '../widgets/screen_background.dart';
 import 'get_started_with_page.dart';
 
@@ -16,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    //_moveToNextScreen();
+    _moveToNextScreen();
   }
 
   Future<void> _moveToNextScreen() async {
