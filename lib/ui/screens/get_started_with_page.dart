@@ -64,22 +64,24 @@ class _Get_Started_WithState extends State<Get_Started_With> {
                     children: [
                       TextButton(
                           onPressed: _onTabForgetPassword,
-                          child: Text('Forget password')
+                          child: Text('Forget password',style: TextStyle(color: Colors.black),)
                       ),
                       RichText(
                         text: TextSpan(
                             text: "Don't have an account? ",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                             children: [
                               TextSpan(
-                                  text: 'Sign Up', style: TextStyle(color: Colors.green),
+                                  text: 'Sign Up', style: TextStyle(color: Colors.green,fontSize: 18),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap =_onTabSignUp
                               ),
                             ],
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            )),
+
+                        ),
                       )
                     ],
                   ),

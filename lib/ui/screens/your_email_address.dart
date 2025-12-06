@@ -15,28 +15,22 @@ class Your_Email_Address extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 150,
-              ),
+              const SizedBox(height: 150),
+
               Text(
                 'Your Email Address',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Text(
-                'A 6 digits OTP will be sent to your email address',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: Colors.grey),
+                'A 6 digits OTP will be sent to your email address ',
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.grey),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10,),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Email'),
+                decoration: InputDecoration(
+                    hintText: 'Email'
+                ),
               ),
               const SizedBox(
                 height: 16,
@@ -45,27 +39,24 @@ class Your_Email_Address extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
                   },
-                  child: Icon(Icons.arrow_circle_right_outlined)),
-              const SizedBox(
-                height: 35,
+                  child: Icon(Icons.arrow_circle_right_outlined)
               ),
+              SizedBox(height: 35,),
               Center(
-                child: Column(
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                          text: "Already have an account? ",
-                          children: [
-                            TextSpan(
-                                text: 'Sign in',
-                                style: TextStyle(color: Colors.green)),
-                          ],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          )),
-                    )
-                  ],
+                child: RichText(
+                  text: TextSpan(
+                      text: "Already have an account? ",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                      children: [
+                        TextSpan(
+                            text: 'Sign in',
+                            style: TextStyle(color: Colors.green,fontSize: 18),
+                        ),
+                      ],
+                  ),
                 ),
               ),
             ],
