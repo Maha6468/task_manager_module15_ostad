@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../data/service/api_caller.dart';
+import '../utils/urls.dart';
 import '../widgets/screen_background.dart';
 import 'pin_verification.dart';
 
@@ -10,7 +12,7 @@ class Join_With_Us extends StatefulWidget {
   State<Join_With_Us> createState() => _Join_With_UsState();
 }
 
-class _Join_With_UsState extends State<Join_With_Us> {
+ class _Join_With_UsState extends State<Join_With_Us> {
 
 
   final TextEditingController _emailController = TextEditingController();
@@ -20,6 +22,11 @@ class _Join_With_UsState extends State<Join_With_Us> {
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _signUpInProgress = false;
+
+
+
+
+
 
 
   @override
@@ -128,16 +135,20 @@ class _Join_With_UsState extends State<Join_With_Us> {
                   const SizedBox(
                     height: 16,
                   ),
-                  FilledButton(
-                      onPressed: () {
-                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
-              
-                        if(_formKey.currentState!.validate()){
-                          Pin_Verification();
-                        }
-              
-                      },
-                      child: Icon(Icons.arrow_circle_right_outlined)),
+                  Visibility(
+                    visible: !_signUpInProgress,
+                    replacement: Center(child: CircularProgressIndicator()),
+                    child: FilledButton(
+                        onPressed: () {
+                          if(_formKey.currentState!.validate()){
+                           // Pin_Verification();
+                             //Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
+                            _signUp();
+                          }
+
+                        },
+                        child: Icon(Icons.arrow_circle_right_outlined)),
+                  ),
                   const SizedBox(
                     height: 35,
                   ),
@@ -151,6 +162,7 @@ class _Join_With_UsState extends State<Join_With_Us> {
                                 TextSpan(
                                     text: 'Sign in',
                                     style: TextStyle(color: Colors.green)),
+
               
                               ],
                               style: TextStyle(
@@ -169,4 +181,73 @@ class _Join_With_UsState extends State<Join_With_Us> {
       ),
     );
   }
+
+
+  _clearTextField(){
+    _emailController.clear();
+    _firstNameController.clear();
+    _lastNameController.clear();
+    _mobileController.clear();
+    _passwordController.clear();
+  }
+
+
+  Future<void> _signUp()async{
+    setState(() {
+      _signUpInProgress = true;
+    });
+
+    Map<String,dynamic>requestBody = {
+      "email":_emailController.text,
+      "firstName":_firstNameController.text,
+      "lastName":_lastNameController.text,
+      "mobile":_mobileController.text,
+      "password":_passwordController.text,
+    };
+
+    final ApiResponse response = await ApiCaller.postRequest(
+      url: Urls.registrationUrl,
+      body: requestBody,
+    );
+
+    setState(() {
+      _signUpInProgress = false;
+    });
+
+    if(response.isSuccess){
+      _clearTextField();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Sign Up success..!'),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 5),
+        ),
+
+      );
+    }else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(response.responseData['data']),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 5),
+        ),
+
+      );
+    }}
+
+
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _mobileController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
 }
+
+
+
+
+
