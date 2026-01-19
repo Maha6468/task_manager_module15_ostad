@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../widgets/screen_background.dart';
 import 'pin_verification.dart';
 
-class Join_With_Us extends StatelessWidget {
+class Join_With_Us extends StatefulWidget {
   const Join_With_Us({super.key});
 
+  @override
+  State<Join_With_Us> createState() => _Join_With_UsState();
+}
+
+class _Join_With_UsState extends State<Join_With_Us> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
