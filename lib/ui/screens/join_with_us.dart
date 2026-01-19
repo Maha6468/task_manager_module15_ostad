@@ -11,81 +11,159 @@ class Join_With_Us extends StatefulWidget {
 }
 
 class _Join_With_UsState extends State<Join_With_Us> {
+
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _mobileController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _signUpInProgress = false;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
           padding: const EdgeInsets.all(30.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 150,
+          child: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 150,
+                  ),
+                  Text(
+                    'Join with us',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+              
+                  TextFormField(
+                    controller: _emailController,
+                    decoration: InputDecoration(hintText: 'Email'),
+                    validator: (String ? value){
+              
+                      if(value == null || value.isEmpty){
+                        return 'please enter your email';
+                      }
+              
+                      final emailRegExp = RegExp(  r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+              
+                      if(!emailRegExp.hasMatch(value)){
+                        return 'Please enter valid email';
+                      }
+              
+                      return null;
+              
+                    },
+                  ),
+                  SizedBox(height: 15,),
+                  TextFormField(
+                    controller: _firstNameController,
+                    decoration: InputDecoration(hintText: 'First name'),
+                    validator: (String ? value){
+                      if(value == null || value.isEmpty){
+                        return 'please enter your First Name';
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextFormField(
+                    controller: _lastNameController,
+                    decoration: InputDecoration(hintText: 'Last name'),
+              
+                    validator: (String ? value){
+                      if(value == null || value.isEmpty){
+                        return 'please enter your Last Name';
+                      }
+                    },
+              
+              
+                  ),
+                  SizedBox(height: 15,),
+                  TextFormField(
+                    controller: _mobileController,
+                    decoration: InputDecoration(hintText: 'Mobile'),
+              
+                    validator: (String ? value){
+                      if(value == null || value.isEmpty){
+                        return 'please enter your Mobile number';
+                      }
+                      if( value.trim().length !=11){
+                        return "Enter 11 digit number";
+                      }
+                    },
+              
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextFormField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(hintText: 'Password'),
+              
+                    obscureText: true,
+                    validator: (String ? value){
+                      if(value == null || value.isEmpty){
+                        return 'please enter your password';
+                      }
+              
+                      if(value.length <= 6){
+                        return 'Enter password more than 6';
+                      }
+              
+                      return null;
+                    },
+              
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  FilledButton(
+                      onPressed: () {
+                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
+              
+                        if(_formKey.currentState!.validate()){
+                          Pin_Verification();
+                        }
+              
+                      },
+                      child: Icon(Icons.arrow_circle_right_outlined)),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                              text: "Already have an account? ",
+                              children: [
+                                TextSpan(
+                                    text: 'Sign in',
+                                    style: TextStyle(color: Colors.green)),
+              
+                              ],
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              )),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                'Join with us',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-
-              TextFormField(
-                decoration: InputDecoration(hintText: 'Email'),
-              ),
-              SizedBox(height: 15,),
-              TextFormField(
-                decoration: InputDecoration(hintText: 'First name'),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              TextFormField(
-                decoration: InputDecoration(hintText: 'Last name'),
-              ),
-              SizedBox(height: 15,),
-              TextFormField(
-                decoration: InputDecoration(hintText: 'Mobile'),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              TextFormField(
-                decoration: InputDecoration(hintText: 'Password'),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              FilledButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Pin_Verification()));
-                  },
-                  child: Icon(Icons.arrow_circle_right_outlined)),
-              const SizedBox(
-                height: 35,
-              ),
-              Center(
-                child: Column(
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                          text: "Already have an account? ",
-                          children: [
-                            TextSpan(
-                                text: 'Sign in',
-                                style: TextStyle(color: Colors.green)),
-
-                          ],
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          )),
-                    )
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
