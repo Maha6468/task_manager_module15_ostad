@@ -11,13 +11,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
 
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _moveToNextScreen();
+   // _moveToNextScreen();
   }
 
   Future<void> _moveToNextScreen() async {
-    await Future.delayed(Duration(seconds: 9));
+    await Future.delayed(Duration(seconds: 500));
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Get_Started_With()));
   }
 
